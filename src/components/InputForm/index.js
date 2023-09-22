@@ -6,7 +6,6 @@ const InputForm = (props) => { // props = datos externos
     const placeholderModificado = `${props.placeholder}...`;
 
     const manejarCambio = (e) => {
-        console.log("cambio", e.target.value);
         props.setValor(e.target.value);
     };
 

@@ -9,6 +9,7 @@ const Form = () => {
     const [nombre, setNombre] = useState("");
     const [puesto, setPuesto] = useState("");
     const [foto, setFoto] = useState("");
+    const [equipo, setEquipo] = useState("");
 
     //e = evento = event
     const manejarEnvio = (e) => {
@@ -17,7 +18,8 @@ const Form = () => {
         let datosAEnviar = {
             nombre,
             puesto,
-            foto
+            foto,
+            equipo
         }
     console.log(datosAEnviar);
     };
@@ -46,7 +48,10 @@ const Form = () => {
                 setValor={setFoto} 
                 required
             />
-            <ListaOpciones/>
+            <ListaOpciones
+                valor={equipo}
+                setValor={setEquipo}
+            />
             <Boton>
                 Crear colaborador
             </Boton>
