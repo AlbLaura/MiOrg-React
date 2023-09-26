@@ -4,7 +4,7 @@ import InputForm from "../InputForm"; //El archivo al llamarse "index.js" no hac
 import ListaOpciones from "../ListaOpciones";
 import Boton from "../Boton";
 
-const Form = () => {
+const Form = (props) => {
 
     const [nombre, setNombre] = useState("");
     const [puesto, setPuesto] = useState("");
@@ -51,6 +51,7 @@ const Form = () => {
             <ListaOpciones
                 valor={equipo}
                 setValor={setEquipo}
+                equipos={props.equipos}
             />
             <Boton>
                 Crear colaborador
