@@ -4,10 +4,24 @@ import Header from './components/Header/Header'; // Llamando/Importando el compo
 import Form from './components/Form/Form';
 import MiOrg from './components/MiOrg/index';
 import Equipo from './components/Equipo';
+import Footer from './components/Footer';
+/* import Colaborador from './components/Colaborador'; */
 
 function App() {
   const [mostrarFormulario, actualizarMostrar]  = useState(false);
-  const [colaboradores, setColaboradores] = useState([]);
+  const [colaboradores, setColaboradores] = useState([{
+        nombre: "Laura Albornoz",
+        puesto: "Estudiante",
+        foto: "https://github.com/alblaura.png",
+        equipo: "Front End"
+      },
+      {
+        nombre: "Claudio Duvara",
+        puesto: "Estudiante",
+        foto: "https://github.com/duvarax.png",
+        equipo: "Programación"
+      }
+  ]);
   //Ternario -> condicion ? seMuestra : noSeMuestra
   //condicion && seMuestra
 
@@ -72,7 +86,7 @@ function App() {
       */}
       { 
         mostrarFormulario && <Form 
-        equipos={equipos.map((data) => data.titulo)}
+        equipos={equipos.map((equipo) => equipo.titulo)}
         registrarColaborador={registrarColaborador}
         /> 
       }
@@ -81,8 +95,15 @@ function App() {
 
       {/* Recorrer un arreglo */}
       {
-        equipos.map((data) => <Equipo datos={data} key={data.titulo}/>)
+        equipos.map((equipo) => <Equipo 
+          datos={equipo} 
+          key={equipo.titulo}
+          colaboradores={colaboradores.filter(colaboradores => colaboradores.equipo === equipo.titulo)}
+          />
+        )
       }
+      <Footer/>
+
     </div>
   );
 }
