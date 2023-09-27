@@ -11,6 +11,8 @@ const Form = (props) => {
     const [foto, setFoto] = useState("");
     const [equipo, setEquipo] = useState("");
 
+    const {registrarColaborador} = props;
+
     //e = evento = event
     const manejarEnvio = (e) => {
         e.preventDefault();
@@ -21,7 +23,7 @@ const Form = (props) => {
             foto,
             equipo
         }
-    console.log(datosAEnviar);
+    registrarColaborador(datosAEnviar);
     };
     //titulo-placeholder ejemplos de Props
     return <section className="form">

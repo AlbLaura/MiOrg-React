@@ -11,9 +11,6 @@ const Equipo = (props) => {
         <h3 style={estiloTitulo}>{titulo}</h3>
         <div className="colaboradores">
             <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
         </div>
     </section>
 };
