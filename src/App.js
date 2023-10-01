@@ -15,14 +15,16 @@ function App() {
         nombre: "Laura Albornoz",
         puesto: "Estudiante",
         foto: "https://github.com/alblaura.png",
-        equipo: "Front End"
+        equipo: "Front End",
+        fav: true
       },
       {
         id: uuid(),
         nombre: "Claudio Duvara",
         puesto: "Estudiante",
         foto: "https://github.com/duvarax.png",
-        equipo: "Programación"
+        equipo: "Programación",
+        fav: false
       }
   ]);
   const [equipos, setEquipos] = useState([
@@ -109,6 +111,20 @@ function App() {
     setEquipos([...equipos, { ...nuevoEquipo, id: uuid }]) //
   }
 
+  //Dar Me Gusta
+
+  const like = (id) => {
+    console.log("Like");
+    const colaboradoresActualizados = colaboradores.map((colaborador) => {
+      if(colaborador.id === id) {
+        colaborador.fav = !colaborador.fav
+      }
+      return colaborador
+    })
+
+    setColaboradores(colaboradoresActualizados)
+  }
+
   return (
     <div>
       <Header/>
@@ -136,6 +152,7 @@ function App() {
           colaboradores={colaboradores.filter(colaboradores => colaboradores.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like={like}
           />
         )
       }

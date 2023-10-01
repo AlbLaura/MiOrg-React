@@ -74,15 +74,14 @@ const Form = (props) => {
                 titulo="Titulo" 
                 placeholder="Ingresar titulo" 
                 valor={titulo} 
-                setValor={setTitulo} 
-                required
+                setValor={setTitulo}
             /> 
             <InputForm 
                 titulo="Color" 
                 placeholder="Ingresar el color en HEX"
                 valor={color} 
-                setValor={setColor} 
-                required
+                setValor={setColor}
+                type="color"
             />
             <Boton>
                 Registrar equipo

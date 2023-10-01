@@ -1,9 +1,9 @@
-.input-form {
+.input {
     margin: 24px 0px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.input-form label {
+.input label {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -11,7 +11,7 @@
     margin-bottom: 8px;
 }
 
-.input-form input {
+.input input {
     width: 100%;
     background-color: #FFFFFF;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.08);
