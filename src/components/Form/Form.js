@@ -11,7 +11,10 @@ const Form = (props) => {
     const [foto, setFoto] = useState("");
     const [equipo, setEquipo] = useState("");
 
-    const {registrarColaborador} = props;
+    const [titulo, setTitulo] = useState("");
+    const [color, setColor] = useState("");
+
+    const {registrarColaborador, crearEquipo} = props;
 
     //e = evento = event
     const manejarEnvio = (e) => {
@@ -25,6 +28,12 @@ const Form = (props) => {
         }
     registrarColaborador(datosAEnviar);
     };
+
+    const manejarNuevoEquipo = (e) => {
+        e.preventDefault();
+        crearEquipo({titulo, colorPrimario: color});
+    }
+
     //titulo-placeholder ejemplos de Props
     return <section className="form">
         <form onSubmit={manejarEnvio}>
@@ -57,6 +66,26 @@ const Form = (props) => {
             />
             <Boton>
                 Crear colaborador
+            </Boton>
+        </form>
+        <form onSubmit={manejarNuevoEquipo}>
+            <h2>Rellena el formulario para crear el equipo.</h2>
+            <InputForm 
+                titulo="Titulo" 
+                placeholder="Ingresar titulo" 
+                valor={titulo} 
+                setValor={setTitulo} 
+                required
+            /> 
+            <InputForm 
+                titulo="Color" 
+                placeholder="Ingresar el color en HEX"
+                valor={color} 
+                setValor={setColor} 
+                required
+            />
+            <Boton>
+                Registrar equipo
             </Boton>
         </form>
     </section>;
